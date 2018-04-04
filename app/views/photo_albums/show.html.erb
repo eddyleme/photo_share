@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @photo_album.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @photo_album.description %>
+</p>
+
+<p>
+  <strong>Cover image:</strong>
+  <%= @photo_album.cover_image %>
+</p>
+
+<%= link_to 'Add Photo', new_photo_album_photo_path(@photo_album) %> |
+<%= link_to 'Edit', edit_photo_album_path(@photo_album) %> |
+<%= link_to 'Back', photo_albums_path %>
+<% @photo_album.photos.each do |photo| %>
+	<p>
+		<%= image_tag photo.file.url %>
+	</p>
+<% end %>
